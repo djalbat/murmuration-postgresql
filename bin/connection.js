@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const pg = require('pg');
+const pg = require("pg");
 
 const { Pool } = pg;
 
@@ -77,23 +77,23 @@ module.exports = Connection;
 function diagnoseError(error, sql, log) {
   const { code } = error;
 
-  log.error(`Error code '${code}'...`);
+  log.error(`Error code "${code}"...`);
 
   switch(code) {
-    case 'ECONNREFUSED' :
-      log.error('The database isn\'t running, probably.');
+    case "ECONNREFUSED" :
+      log.error("The database isn't running, probably.");
       break;
 
-    case 'ENOTFOUND' :
-      log.error('The host is wrong, probably.');
+    case "ENOTFOUND" :
+      log.error("The host is wrong, probably.");
       break;
 
-    case '3D000' :
-      log.error('The database name is wrong, probably.');
+    case "3D000" :
+      log.error("The database name is wrong, probably.");
       break;
 
-    case '28000' :
-      log.error('The username or the password are wrong, probably.');
+    case "28000" :
+      log.error("The username or the password are wrong, probably.");
       break;
 
     default:
@@ -102,7 +102,7 @@ function diagnoseError(error, sql, log) {
       log.error(message);
 
       if (sql) {
-        log.error(`The offending SQL is: '${sql}'`);
+        log.error(`The offending SQL is: "${sql}"`);
       }
       break;
   }
