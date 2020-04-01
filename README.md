@@ -60,6 +60,32 @@ As mentioned in the parent package's readme file, if a `log` property is provide
 
 In the remaining cases the error code is simply echoed and the offending SQL, if there is any, will also be echoed in a separate call to the `log.error()` function.
 
+### Placeholders
+
+A variable length list of parameters can be passed between the `sql` and `callback` arguments of both the `query()` and `execute()` functions. These replace the `?` placeholders in the SQL you provide. For example, if the SQL passed to the `query()` function is the following...
+
+```
+
+  SELECT * FROM `user` WHERE `username`=? and `password`=MD5(?);
+
+```
+...then you would call the `query()` function thus:
+
+```
+const username = ... ,
+      password = ... ;
+
+query(connection, sql, username, password, (error, rows) => {
+
+  ...
+
+});
+
+```
+The `execute()` function is treated entirely similarly.
+
+For more information on placeholders and performing queries in general, see the `mysql` package documentation [here](https://github.com/mysqljs/mysql#performing-queries).
+
 ## Contact
 
 - james.smith@djalbat.com
