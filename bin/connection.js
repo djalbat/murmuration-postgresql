@@ -17,8 +17,8 @@ class Connection {
     return this.log;
   }
 
-  query(sql, values, callback) {
-    this.client.query(sql, values, (error, result) => {
+  query(sql, parameters, callback) {
+    this.client.query(sql, parameters, (error, result) => {
       let rows = null;
 
       if (error) {
@@ -96,13 +96,14 @@ function diagnoseError(error, sql, log) {
       log.error("The username or the password are wrong, probably.");
       break;
 
-    default:
-      const { message } = error;
+    default: {
+        const { message } = error;
 
-      log.error(message);
+        log.error(message);
 
-      if (sql) {
-        log.error(`The offending SQL is: "${sql}"`);
+        if (sql) {
+          log.error(`The offending SQL is: "${sql}"`);
+        }
       }
       break;
   }
