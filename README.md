@@ -62,11 +62,11 @@ In the remaining cases the error code is simply echoed and the offending SQL, if
 
 ### Placeholders
 
-A variable length list of parameters can be passed between the `sql` and `callback` arguments of both the `query()` and `execute()` functions. These replace the `?` placeholders in the SQL you provide. For example, if the SQL passed to the `query()` function is the following...
+A variable length list of parameters can be passed between the `sql` and `callback` arguments of both the `query()` and `execute()` functions. These replace the `$#` placeholders in the SQL you provide. For example, if the SQL passed to the `query()` function is the following...
 
 ```
 
-  SELECT * FROM `user` WHERE `username`=? and `password`=MD5(?);
+  SELECT * FROM user WHERE username=$1 and `password`=MD5($2);
 
 ```
 ...then you would call the `query()` function thus:
