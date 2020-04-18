@@ -49,7 +49,17 @@ class Connection {
 
   static fromConfiguration(configuration, callback) {
     if (pool === null) {
+      configuration = Object.assign({}, configuration); ///
+
+      const { log } = configuration;
+
+      delete configuration.log;
+
       pool = new Pool(configuration);
+
+      Object.assign(configuration, {
+        log
+      });
     }
 
     pool.connect((error, client, done) => {
