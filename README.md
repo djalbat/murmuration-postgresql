@@ -27,8 +27,9 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 General usage instructions are given in the aforementioned parent package's readme file.
 
 ```
-const murmuration = require('murmuration-postgresql'), ///
-      { database, migrate, transaction, Connection } = murmuration,
+const murmuration = require("murmuration-postgresql"); ///
+
+const { database, migrate, transaction, Connection } = murmuration,
       { query, execute } = database;
 
 ...
