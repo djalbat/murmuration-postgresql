@@ -90,19 +90,19 @@ function diagnoseError(error, sql, log) {
   log.error(`Error code "${code}"...`);
 
   switch(code) {
-    case "ECONNREFUSED" :
+    case "ECONNREFUSED":
       log.error("The database isn't running, probably.");
       break;
 
-    case "ENOTFOUND" :
+    case "ENOTFOUND":
       log.error("The host is wrong, probably.");
       break;
 
-    case "3D000" :
+    case "3D000":
       log.error("The database name is wrong, probably.");
       break;
 
-    case "28000" :
+    case "28000":
       log.error("The username or the password are wrong, probably.");
       break;
 
