@@ -75,6 +75,8 @@ class Connection {
         diagnoseError(error, sql, log);
       }
 
+      error = null;
+
       const connection = new Connection(client, done, log);
 
       callback(error, connection);
