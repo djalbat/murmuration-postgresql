@@ -1,8 +1,10 @@
 "use strict";
 
-const pg = require("pg");
+const pg = require("pg"),
+      murmuration = require("murmuration");
 
-const { Pool } = pg;
+const { Pool } = pg,
+      { defaultLog } = murmuration;
 
 let pool = null;
 
@@ -116,14 +118,3 @@ function diagnoseError(error, sql, log) {
       break;
   }
 }
-
-function defaultLog(message) {}
-
-Object.assign(defaultLog, {
-  trace: () => {},
-  debug: () => {},
-  info: () => {},
-  warning: () => {},
-  error: () => {},
-  fatal: () => {},
-});
