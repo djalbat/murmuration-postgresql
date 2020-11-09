@@ -63,21 +63,17 @@ class Connection {
     }
 
     pool.connect((error, client, done) => {
+      let connection = null;
+
       const { log = defaultLog } = configuration;
 
       if (error) {
         const sql = null; ///
 
-        client = null;
-
-        done = null;
-
         diagnoseError(error, sql, log);
+      } else {
+        connection = new Connection(client, done, log);
       }
-
-      error = null;
-
-      const connection = new Connection(client, done, log);
 
       callback(error, connection);
     });
