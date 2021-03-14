@@ -1,10 +1,7 @@
 "use strict";
 
-const pg = require("pg"),
-      murmuration = require("murmuration");
-
-const { Pool } = pg,
-      { defaultLog } = murmuration;
+const { Pool } = require("pg"),
+      { defaultLog } = require("murmuration");
 
 let pool = null;
 
