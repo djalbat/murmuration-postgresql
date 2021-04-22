@@ -71,6 +71,8 @@ class Connection {
 
         diagnoseError(error, sql, log);
       } else {
+        error = null;
+
         connection = new Connection(client, done, log);
       }
 
