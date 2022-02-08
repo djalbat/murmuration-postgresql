@@ -1,7 +1,7 @@
 {
   "name": "murmuration-postgresql",
   "author": "James Smith",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "license": "MIT, Anti-996",
   "homepage": "https://github.com/djalbat/murmuration-postgresql",
   "description": "Connections, transactions and migrations for PostgreSQL.",
