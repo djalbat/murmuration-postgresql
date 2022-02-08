@@ -35,7 +35,7 @@ const { database, migrate, transaction, Connection } = murmuration,
 ...
 ```
 
-This package leverages the [`pg`](https://node-postgres.com/) package and used its parameterised queries. This guard against SQL injection without further ado.
+This package leverages the [`pg`](https://node-postgres.com/) package and uses its parameterised queries. This guard against SQL injection without further ado.
 
 ### Configuration
 
