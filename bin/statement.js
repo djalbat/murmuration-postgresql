@@ -1,9 +1,8 @@
 "use strict";
 
-const { database, Statement: BaseStatement, caseUtilities } = require("murmuration");
+const { Statement: BaseStatement, caseUtilities } = require("murmuration");
 
-const { query, execute: command } = database,
-      { camelCaseToSnakeCase, snakeCaseToCamelCase } = caseUtilities;
+const { camelCaseToSnakeCase, snakeCaseToCamelCase } = caseUtilities;
 
 class Statement extends BaseStatement {
   constructor(connection, sql, query, parameters, oneHandler, noneHandler, manyHandler, elseHandler, firstHandler, errorHandler, successHandler, placeholderIndex) {
@@ -41,11 +40,12 @@ class Statement extends BaseStatement {
   }
 
   selectFrom(relation) {
-    const sql = `SELECT * FROM "${relation}"`;
+    const sql = `SELECT * FROM "${relation}"`,
+          query = true;
 
     this.setSQL(sql);
 
-    this.query = true;
+    this.setQuery(query;
 
     return this;
   }
@@ -68,16 +68,6 @@ class Statement extends BaseStatement {
     const key = snakeCaseToCamelCase(column);
 
     return key;
-  }
-
-  execute() {
-    const sql = this.getSQL(),
-          parameters = this.getParameters(),
-          connection = this.getConnection();
-
-    this.query ?
-      query(connection, sql, ...parameters, this.queryHandler) :
-        command(connection, sql, ...parameters, this.commandHandler);
   }
 
   static fromConnection(Class, connection) {
