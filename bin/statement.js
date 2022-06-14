@@ -45,7 +45,7 @@ class Statement extends BaseStatement {
 
     this.setSQL(sql);
 
-    this.setQuery(query;
+    this.setQuery(query);
 
     return this;
   }
