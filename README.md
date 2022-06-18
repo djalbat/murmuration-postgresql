@@ -1,6 +1,6 @@
 # Murmuration for PostGreSQL
 
-Connections, transactions and migrations for PostGreSQL.
+Statements, transactions and migrations for PostGreSQL.
 
 This package is based largely on the following parent one:
 
