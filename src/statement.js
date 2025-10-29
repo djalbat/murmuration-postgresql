@@ -1,10 +1,10 @@
 "use strict";
 
-const { Statement: BaseStatement, caseUtilities } = require("murmuration");
+import { Statement as BaseStatement, caseUtilities } from "murmuration";
 
 const { camelCaseToSnakeCase, snakeCaseToCamelCase } = caseUtilities;
 
-class Statement extends BaseStatement {
+export default class Statement extends BaseStatement {
   constructor(connection, sql, query, parameters, oneHandler, noneHandler, manyHandler, elseHandler, firstHandler, errorHandler, successHandler, placeholderIndex) {
     super(connection, sql, query, parameters, oneHandler, noneHandler, manyHandler, elseHandler, firstHandler, errorHandler, successHandler);
 
@@ -93,5 +93,3 @@ class Statement extends BaseStatement {
     return statement;
   }
 }
-
-module.exports = Statement;

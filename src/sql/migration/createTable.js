@@ -9,4 +9,4 @@ const createTableMigrationSQL = `
 
 `;
 
-module.exports = createTableMigrationSQL;
+export default createTableMigrationSQL;
